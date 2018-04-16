@@ -36,7 +36,6 @@ func readStatementRequest(r io.Reader) (string, error) {
 		return "", e
 	}
 
-	// TODO: BASE64 DECODE the statement!
 	p, e := base64.StdEncoding.DecodeString(request[0])
 	if e != nil {
 		return "", e

@@ -1,16 +1,17 @@
 ## BFT-SQLITE
 
-Tendermint + Sqlite3 = BFT Database replication.
+Tendermint + Sqlite3 = BFT Database Replication.
 
-Inspired by rqlite and some others, this is an example of using a blockchain to replicate a SQL database.
-All SQL statements are recorded on the blockchain and inserted
+Inspired by rqlite and some others, this is an example of using a blockchain to
+replicate a SQL database. All SQL statements are recorded on the blockchain and inserted
 into the local sqlite3 database.  Every node has a local copy of the db replicated
 by the transactions on the blockchain.  If a node goes offline, it will automatically
-re-sync with the network. And, you can only submit SQL through the blockchain. You have the
-ability to run queries against the db (through a simple rest service).
+re-sync with the network.
 
 This example uses an in-memory sql db.  So it's very difficult for anyone to locally
-change/alter the db -  and `DROP` statements are rejected.
+change/alter the db -  and `DROP` statements are rejected. You can only submit SQL statements
+through the blockchain, you can not directly interact with the database.  However, our simple
+REST service allows arbitrary queries against the db.
 
 The command line includes 2 options:
 - Start a node (with the embedded database)
